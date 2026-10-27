@@ -1,0 +1,756 @@
+:root{
+  --blue-dark:#032A4A;
+  --blue:#063B67;
+  --blue-light:#D8E5EC;
+  
+  --green-dark:#395C17;  
+  --green:#6C904A;
+  --green-officiel:#538B34;
+  --green-light:#D9EBC3;
+  
+  --ice:#F5F7F8;
+  --white:#FFFFFF;
+  --ink:#102332;
+  --muted:#647586;
+  --line:#DCE4E8;
+  --max:1180px;
+  --orange:#f36c21;
+
+  --radius: 18px;
+  
+}
+
+*{box-sizing:border-box}
+html{
+	scroll-behavior:smooth;
+    scroll-padding-top: 75px;
+}
+
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--white);
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+
+/*Couleur des Textes*/
+.texte-vert {color: var(--green)}
+
+
+
+/* HEADER : bleu alpin foncé */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:var(--blue-dark);
+  border-bottom:4px solid var(--green);
+  box-shadow:0 8px 24px #032A4A35;
+}
+
+/* Container du HEADER */
+.header-inner{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+}
+
+/* Logo + Texte + Img du Header*/ 
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--white);
+}
+.brand img{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--white);
+}
+.brand small{
+  display:block;
+  font-size:9px;
+  letter-spacing:.16em;
+  color:#B8CAAB;
+  font-weight:800;
+}
+.brand strong{
+  display:block;
+  font-size:16px;
+  line-height:1.1;
+  color:var(--white);
+}
+
+.nav{
+  display:flex;
+  gap:20px;
+  font-size:12px;
+  font-weight:800;
+  color:#fff;
+}
+.nav a{
+  padding:30px 0;
+  position:relative;
+  transition:.2s ease;
+}
+.nav a:hover,.nav a.active{color:var(--green-dark)}
+.nav a.active:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:20px;
+  height:4px;
+  background:var(--green);
+  border-radius:var(--radius);
+}
+.menu-btn{
+  display:none;
+  border:1px solid #ffffff45;
+  background:var(--green);
+  color:#fff;
+  border-radius:var(--radius);
+  padding:8px 12px;
+  font-size:19px;
+}
+
+/* HERO : image en plein cadre, voile et contenus superposés */
+.hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:500px;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  padding:50px 0;
+  background:var(--blue-dark);
+}
+
+.page-hero{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:250px;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  padding:0px 0;
+  background:var(--blue-dark);
+}
+
+.hero-image{
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:cover;
+  object-position:center 48%;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(90deg,
+	/* Dégradé Bleu Foncé;*/
+    rgba(3,42,74,.80) 0%,
+    rgba(3,42,74,.28) 48%,
+    rgba(3,42,74,.01) 100%)
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  width:520px;
+  height:520px;
+  border:2px solid #6C904A55;
+  border-radius:50%;
+  right:-160px;
+  top:-190px;
+}
+.hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.12fr .88fr;
+  gap:60px;
+  align-items:center;
+}
+.hero-copy{
+  position:relative;
+  z-index:1;
+}
+
+
+.kicker{
+  margin:10px 0 10px 0;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--green);
+}
+.kicker-light{color:var(--green-light)}
+
+.hero h1{
+  font-size:clamp(44px,6vw,74px);
+  line-height:1.01;
+  letter-spacing:-.05em;
+  margin:12px 0 18px;
+}
+
+.page-hero h1{
+  /*font-size:clamp(44px,6vw,74px);*/
+    font-size:clamp(30px,6vw,60px);
+  line-height:1.01;
+  letter-spacing:-.05em;
+  /*margin:12px 0 18px;*/
+  margin:10px 0 10px;*/
+}
+
+.page-hero h1 span{color:var(--green-light)}
+
+.hero h1 span{color:var(--green-light)}
+.hero p{
+  font-size:18px;
+  color:var(--blue-light);
+  max-width:680px;
+}
+.hero-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+
+/*Boutons*/
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 20px;
+  border-radius:var(--radius);
+  font-weight:900;
+  font-size:13px;
+  border:2px solid transparent;
+  transition:.2s ease;
+}
+.btn-green{
+  background:var(--green);
+  color:var(--white);
+}
+.btn-green:hover{
+  background:var(--green-dark);
+  transform:translateY(-1px);
+}
+.btn-blue{
+  background:var(--blue);
+  color:#fff;
+}
+.btn-blue:hover{
+  background:var(--blue-dark);
+  transform:translateY(-1px);
+}
+.btn-outline{
+  border-color:#ffffff75;
+  color:var(--white);
+}
+.btn-outline:hover{
+  border-color:var(--green);
+  color:var(--green-light);
+}
+
+.btn-white{
+  background:var(--white);
+  color:var(--blue-dark);
+}
+
+.btn-white:hover{
+  background:var(--blue-light);
+  transform:translateY(-1px);
+}
+
+.btn-transparent{
+  color:var(--blue);
+}
+
+.btn-transparent:hover{
+  color:var(--green);
+}
+
+
+/*Cadre ESPRIT CLUB accueil*/
+.cadre-accueil{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  gap:24px;
+  padding:26px;
+  border:1px solid #ffffff32;
+  background:#ffffff12;
+  backdrop-filter:blur(8px);
+  border-radius:var(--radius);
+}
+
+.cadre-accueil img{
+  width:125px;
+  height:125px;
+  border-radius:50%;
+  object-fit:cover;
+  flex:none;
+  border:5px solid #fff;
+}
+
+.cadre-accueil strong{
+  display:block;
+  color:#fff;
+  font-size:38px;
+  line-height:1.1;
+  margin:5px 0;
+}
+
+.cadre-accueil p{font-size:14px;margin:0}
+
+.cadre-accueil-label{
+  color:#B7CBA8;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.18em;
+}
+
+
+/* SECTIONS */
+.section{padding:20px 0}
+.alt{background:var(--ice)}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:32px;
+}
+.section-head h2{
+  font-size:clamp(32px,4vw,50px);
+  color:var(--blue);
+  line-height:1.05;
+  margin:6px 0;
+}
+.section-head p{
+  max-width:620px;
+  color:var(--muted);
+  margin:0;
+}
+
+/* STATS : présence forte du vert */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:var(--green);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 12px 30px #6C904A30;
+}
+.stat{
+  text-align:center;
+  padding:25px;
+  color:white;
+  border-right:1px solid #ffffff45;
+}
+.stat:last-child{border:0}
+.stat b{
+  display:block;
+  font-size:28px;
+  line-height:1.15;
+}
+.stat span{
+  font-size:12px;
+  color:var(--green-light);
+}
+
+.timeline{position:relative;border-left:2px solid var(--line);margin-left:14px}
+.timeline-item{padding:0 0 42px 32px;position:relative}
+.timeline-item:before{content:"";position:absolute;left:-8px;top:5px;width:14px;height:14px;background:var(--green);border-radius:50%}
+.year{font-weight:900;color:var(--green);font-size:1.1rem}
+
+.timeline-calendrier:before{content:"";position:absolute;left:-8px;top:5px;width:14px;height:14px;background:var(--green);border-radius:50%}
+
+.timeline-calendrier{
+	padding:10px 10px 10px 10px;
+	position:relative
+	color:var(--blue);		
+	margin:20px;	
+	font-size:15px;
+	max-width:400px;
+	}
+
+
+/* Grilles */
+/*.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}*/
+.grid{display:grid;gap:22px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+
+
+.icon-grid2
+{ 
+grid-template-columns:.20fr 1.80fr;
+align-items: center;
+
+}
+
+.icon-grid2-left
+{ 
+grid-template-columns:.30fr 1.70fr;
+align-items: left;
+
+}
+.icon-grid2-left img{
+  width:100px;
+  
+}
+
+/*Cartes*/
+.carte-identite{
+  background:var(--white);
+  border:1px solid var(--line);
+  overflow:hidden;
+  border-radius:var(--radius);
+  padding:0px;
+}
+.carte-identite p{margin:0;color:var(--muted)}
+.carte-identite h3{color:var(--blue);font-size:22px;margin:12px 0 7px}
+
+.agenda {
+  background: var(--white);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  border-radius:var(--radius);
+  padding: 0;
+}
+
+.agenda-detail {
+  background: var(--white);
+  padding: 15px;
+}
+
+.agenda > img {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  object-fit: cover;
+}
+
+.agenda > img:not(:first-child) {
+  display: none;
+}
+
+.agenda-detail p {
+  margin: 0;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.agenda-detail p:hover,
+.agenda-detail p:focus-visible {
+  color: var(--blue);
+}
+
+
+
+
+.card{
+  background:var(--white);
+  border:1px solid var(--line);
+  overflow:hidden;
+  border-radius:var(--radius);
+  padding:10px;
+}
+.card p{margin:0;color:var(--muted)}
+.card h3{color:var(--blue);font-size:22px;margin:12px 0 7px}
+.card h4{color:var(--blue);font-size:18px;margin:12px 0 7px}
+
+
+.card-media {
+aspect-ratio: 16/10;
+background-color: var(--white);
+background-image: url('../../images/accueil/image-placeholder.jpg');
+background-position: center;
+background-size: contain;
+background-repeat: no-repeat;
+}
+
+.card-body{	
+background:var(--white);
+padding:15px;
+}
+
+.card-green{
+  box-shadow:0 8px 15px var(--green);
+}
+.card-blue{
+  box-shadow:0 8px 15px var(--blue);
+}
+
+
+.person img	{
+	aspect-ratio:3/4;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	object-fit:cover;
+	width:100%;
+	}
+
+.icon{
+  width:46px;
+  height:46px;
+  border-radius:var(--radius);
+  background:var(--green);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  font-size:13px;
+}
+
+.logo-resized-58x58{
+  width:58px;
+  height:58px;
+}
+
+.logo-resized-40x40{
+  width:40px;
+  height:40px;
+}
+
+
+.photo{
+  aspect-ratio:16/10;
+  background:#EAF1F5;
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.club-banner{
+  background:var(--green);
+  color:#fff;
+  padding:40px 0;
+}
+.club-banner-inner{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+.club-banner img{
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  border:4px solid #fff;
+  object-fit:cover;
+}
+.club-banner h2{
+  font-size:clamp(25px,3vw,38px);
+  line-height:1.1;
+  margin:5px 0 0;
+}
+.club-banner .btn{margin-left:auto}
+
+/* FOOTER */
+.footer{
+  background:var(--blue-dark);
+  color:#B9CCD8;
+  padding:20px 0 22px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:20px;
+}
+.footer h3{color:#fff}
+.footer a:hover{color:#B7CBA8}
+.footer p,.footer a{font-size:13px}
+.bottom{
+  border-top:1px solid #ffffff18;
+  margin-top:20px;
+  padding-top:10px;
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+}
+
+
+/* Tableau des tarifs du Ski Club Les Arcs */
+.tarifs-club {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    overflow: hidden;
+    border: 1px solid #dce5eb;
+    border-radius:var(--radius);
+    color: #173653;
+    background: #ffffff;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* Entêtes des colonnes */
+.tarifs-club thead th {
+    padding: 14px 6px;
+    background: #173653;
+    color: #ffffff;
+    font-weight: 700;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 3px solid #5b9638;
+}
+
+/* Première colonne : intitulés */
+.tarifs-club tbody th {
+    padding: 15px 10px;
+    background: #edf3e9;
+    color: #173653;
+    font-weight: 700;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+/* Cellules */
+.tarifs-club tbody td {
+    padding: 15px 5px;
+    font-weight: 600;
+    border-left: 1px solid #e3eaf0;
+}
+
+/* Séparateurs horizontaux */
+.tarifs-club tbody tr + tr th,
+.tarifs-club tbody tr + tr td {
+    border-top: 1px solid #e3eaf0;
+}
+
+/* Alternance légère */
+.tarifs-club tbody tr:nth-child(even) td {
+    background: #f7f9fb;
+}
+
+/* Mise en évidence au survol */
+.tarifs-club tbody tr:hover th,
+.tarifs-club tbody tr:hover td {
+    background: #eaf3e4;
+    transition: background-color 0.2s ease;
+}
+
+/* Largeurs des colonnes */
+.tarifs-club th:first-child {
+    width: 25%;
+}
+
+.tarifs-club thead th:not(:first-child) {
+    width: 12.5%;
+}
+
+/* Adaptation aux petits écrans */
+@media (max-width: 600px) {
+    .tarifs-club {
+        font-size: 0.75rem;
+    }
+
+    .tarifs-club thead th,
+    .tarifs-club tbody td,
+    .tarifs-club tbody th {
+        padding: 10px 3px;
+    }
+
+    .tarifs-club tbody th {
+        font-size: 0.7rem;
+    }
+}
+
+
+
+/* MOBILE */
+@media(max-width:900px){
+  .nav{
+    display:none;
+    position:absolute;
+    top:82px;
+    left:0;
+    right:0;
+    background:var(--blue-dark);
+    padding:10px 20px 16px;
+    flex-direction:column;
+    gap:0;
+    box-shadow:0 15px 30px #0004;
+  }
+  .nav.open{display:flex}
+  .nav a{
+    padding:12px 0;
+    border-bottom:1px solid #ffffff1A;
+  }
+  .nav a.active:after{display:none}
+  .menu-btn{display:block}
+  .hero-grid{grid-template-columns:1fr}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid #ffffff45}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .club-banner-inner{flex-wrap:wrap}
+  .club-banner .btn{margin-left:0}
+    .hero-overlay{
+	  background:linear-gradient(
+		90deg,
+		rgba(3,42,74,.80) 0%,
+		rgba(3,42,74,.28) 48%,
+		rgba(3,42,74,.01) 100%)
+	  }
+}
+@media(max-width:620px){
+  .container{width:calc(100% - 28px)}
+  .section{padding:62px 0}
+  .grid-2,.grid-3,.footer-grid{grid-template-columns:1fr}
+  .grid-4{grid-template-columns:1fr 1fr}
+  .section-head{display:block}
+  .section-head p{margin-top:12px}
+  .hero{min-height:500px;padding:50px 0}
+  .hero-image{object-position:58% center}
+  
+  
+
+  .hero-overlay{
+	  background:linear-gradient(
+		90deg,
+		rgba(3,42,74,.80) 0%,
+		rgba(3,42,74,.28) 48%,
+		rgba(3,42,74,.01) 100%)
+	  }
+	  
+ /*Cadre ESPRIT CLUB accueil*/	  
+  .cadre-accueil{flex-direction:column;align-items:flex-start}
+  .cadre-accueil img{width:105px;height:105px}  
+  
+  .stats{border-radius:var(--radius)}
+  .stat{padding:20px 10px}
+  .stat b{font-size:21px}
+  .bottom{display:block}
+  .bottom span{display:block;margin-top:6px}
+  .brand img{width:50px;height:50px}
+  .brand strong{font-size:14px}
+  
+}
