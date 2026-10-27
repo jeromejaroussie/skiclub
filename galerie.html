@@ -1,0 +1,135 @@
+
+
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#063B67">
+<title>Ski Club Les Arcs — Bourg-Saint-Maurice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="assets/css/galerie.css?v=2026-10-12">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-12">
+
+
+</head>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/images/accueil/logo-ski-club.jpg" alt="Ski Club Les Arcs">
+      <span>
+        <small>BOURG-SAINT-MAURICE</small>
+        <strong>SKI CLUB LES ARCS</strong>
+      </span>
+    </a>
+
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="nav">
+      <a href="club.html">Le club</a>
+	  <a href="groupes.html">Les groupes</a>
+      <a href="competitions.html">Compétitions</a>
+      <a href="vie-du-club.html">Vie du Club</a>
+	  <a href="infos-pratiques.html">Infos pratiques</a>
+      <a href="partenaires.html">Partenaires</a>
+      <a href="contact.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+
+ <main>
+  
+ <section class="page-hero">
+  <img class="hero-image" src="assets/images/bandeau/galerie.jpg">
+  <div class="hero-overlay" aria-hidden="true"></div>
+	<div class="container">
+		<div class="kicker kicker-light">Souvenirs du club</div>
+		<h1>La Galerie <span>Photos</span></h1>
+		<p>Courses, entraînements, sorties et temps forts du Ski Club Les Arcs.</p>
+	</div>
+</section>
+
+ <section class="section" aria-label="Recherche et filtres">
+    <div class="container">
+	      <div id="categoryFilters" class="filters" aria-label="Filtrer par catégorie"></div>
+	     </div>
+    </section>
+
+    <section id="albumsView" aria-label="Albums photos">
+	<div class="container">
+      <div class="section-heading">
+        <h2>Les albums</h2>
+        <span id="resultCount" class="muted"></span>
+      </div>
+      <div id="albumGrid" class="album-grid"></div>
+      <p id="emptyAlbums" class="empty-state" hidden>Aucun album ne correspond à votre recherche.</p>
+	 </div>
+    </section>
+
+    <section id="photosView" aria-label="Photos de l’album" hidden>
+	<div class="container">
+      <div class="section-heading album-heading">
+        <button id="backToAlbums" class="back-button" type="button">← Tous les albums</button>
+        <div>
+          <h2 id="currentAlbumTitle"></h2>
+          <p id="currentAlbumDescription" class="muted"></p>
+        </div>
+      </div>
+      <div id="photoGrid" class="photo-grid"></div>
+      <p id="emptyPhotos" class="empty-state" hidden>Aucune photo dans cet album pour le moment.</p>
+	  </div>
+    </section>
+  </main>
+
+<!--  <footer class="site-footer">Ski Club Les Arcs <span>•</span> Galerie photos</footer>-->
+
+  <dialog id="lightbox" class="lightbox" aria-label="Visionneuse photo">
+    <button id="closeLightbox" class="lightbox-close" type="button" aria-label="Fermer">×</button>
+    <button id="previousPhoto" class="lightbox-nav previous" type="button" aria-label="Photo précédente">‹</button>
+    <figure>
+      <img id="lightboxImage" alt="">
+      <figcaption>
+        <div><strong id="lightboxTitle"></strong><p id="lightboxMeta"></p></div>
+        <span id="lightboxCounter"></span>
+      </figcaption>
+    </figure>
+    <button id="nextPhoto" class="lightbox-nav next" type="button" aria-label="Photo suivante">›</button>
+  </dialog>
+
+<footer class="footer">
+<div class="container">
+	<div class="footer-grid">
+		<div>
+			<h3>Ski Club Les Arcs</h3>
+			<p>268 route du Funiculaire · Arc 1600<br>73700 Bourg-Saint-Maurice</p>
+		</div>
+		<div>
+			<h3>Navigation</h3>
+			<p><a href="club.html">Le club</a> / <a href="groupes.html">Les groupes</a> / <a href="competitions.html">Compétitions</a></p>
+			<p><a href="vie-du-club.html">Vie du Club</a> / <a href="infos-pratiques.html">Infos pratiques</a> / <a href="partenaires.html">Partenaires</a></p>
+		</div>
+		<div>
+			<h3>Nous contacter</h3>
+			<p><a href="contact.html">Contacts</a></p>
+			<p>
+			<a href="https://www.facebook.com/skiclublesarcs" target="new" rel="noopener">
+				<img class="logo-resized-40x40" src="assets/images/contacts/facebook-small.jpg">
+			</a>
+			<a href="https://www.instagram.com/skiclublesarcs_officiel/" target="new" rel="noopener">
+				<img class="logo-resized-40x40" src="assets/images/contacts/instagram-small.jpg">
+			</a>
+			<a href="https://www.youtube.com/@skiclublesarcs9312" target="new" rel="noopener">
+				<img class="logo-resized-40x40" src="assets/images/contacts/youtube-small.jpg">
+			</a>
+		</div>
+	</div>
+	<div class="bottom">
+		<span>© <span data-year></span> Ski Club Les Arcs</span>
+		<span>Arc 1600 · Bourg-Saint-Maurice</span>
+	</div>
+</div>
+</footer>
+<script src="assets/js/script.js"></script>
+</body>
+</html>

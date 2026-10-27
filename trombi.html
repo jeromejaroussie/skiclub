@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#063B67">
+<title>Ski Club Les Arcs — Bourg-Saint-Maurice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-12">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/images/accueil/logo-ski-club.jpg" alt="Ski Club Les Arcs">
+      <span>
+        <small>BOURG-SAINT-MAURICE</small>
+        <strong>SKI CLUB LES ARCS</strong>
+      </span>
+    </a>
+
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="nav">
+      <a href="club.html">Le club</a>
+	  <a href="groupes.html">Les groupes</a>
+      <a href="competitions.html">Compétitions</a>
+      <a href="vie-du-club.html">Vie du Club</a>
+	  <a href="infos-pratiques.html">Infos pratiques</a>
+      <a href="partenaires.html">Partenaires</a>
+      <a href="contact.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <img class="hero-image" src="assets/images/bandeau/les-groupes.jpg">
+  <div class="hero-overlay" aria-hidden="true"></div>
+	<div class="container">
+		<div class="kicker kicker-light">Les Groupes</div>
+		<h1><span>Trombi</span>noscope <span id="CategorieAge"></span></h1>
+		<p>Retrouve ici nos sportifs.</p>
+	</div>
+</section>
+
+<section class="section alt" id="U8">
+	<div class="container">
+		<div class="section-head">
+			<div>
+				<div class="kicker" id="TitreTrombi"></div>
+				<h2 id="NbreSkieurs"></h2>
+			</div>
+		</div>	
+		<div class="grid grid-4" id="liste-coachs"></div>	
+		<br>
+		<div class="grid grid-4" id="liste-skieurs"></div>
+	</div>
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+	<div class="footer-grid">
+		<div>
+			<h3>Ski Club Les Arcs</h3>
+			<p>268 route du Funiculaire · Arc 1600<br>73700 Bourg-Saint-Maurice</p>
+		</div>
+		<div>
+			<h3>Navigation</h3>
+			<p><a href="club.html">Le club</a> / <a href="groupes.html">Les groupes</a> / <a href="competitions.html">Compétitions</a></p>
+			<p><a href="vie-du-club.html">Vie du Club</a> / <a href="infos-pratiques.html">Infos pratiques</a> / <a href="partenaires.html">Partenaires</a></p>
+		</div>
+		<div>
+			<h3>Nous contacter</h3>
+			<p><a href="contact.html">Contacts</a></p>
+			<p>
+			<a href="https://www.facebook.com/skiclublesarcs" target="new" rel="noopener">
+				<img class="logo-resized-40x40" src="assets/images/contacts/facebook-small.jpg">
+			</a>
+			<a href="https://www.instagram.com/skiclublesarcs_officiel/" target="new" rel="noopener">
+				<img class="logo-resized-40x40" src="assets/images/contacts/instagram-small.jpg">
+			</a>
+			<a href="https://www.youtube.com/@skiclublesarcs9312" target="new" rel="noopener">
+				<img class="logo-resized-40x40" src="assets/images/contacts/youtube-small.jpg">
+			</a>
+		</div>
+	</div>
+	<div class="bottom">
+		<span>© <span data-year></span> Ski Club Les Arcs</span>
+		<span>Arc 1600 · Bourg-Saint-Maurice</span>
+	</div>
+</div>
+</footer>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/skieurs.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const categorie = params.get("cat");
+let NbreSkieurs=0;
+let primary = false;
+let secondary = false;
+let chainePrimary ="";
+let chaineSecondary="";
+
+document.getElementById("CategorieAge").textContent =  categorie;
+const listeSkieurs = document.getElementById("liste-skieurs");
+const listeCoachs = document.getElementById("liste-coachs");
+
+Object.values(coachs).forEach((coach) => 
+{
+	const nomCoach = `${coach.prenom} ${coach.nom}`;
+	if (coach.categorie1.includes(categorie)) 
+		{
+		primary = true
+		const cartecoach = document.createElement("div");
+		cartecoach.className = "carte-identite person";
+		chainePrimary = `
+		<img src="${coach.photo}" alt="${nomCoach}" onerror="this.src='assets/images/coachs/placeholder.jpg'">
+		<div class="card-body">
+		<strong>${nomCoach}</strong><br>
+		GROUPE: ${coach.categorie1} ${coach.type1} <br>
+		FFS : ${coach.FIS}
+		</div>
+		`
+		cartecoach.innerHTML = chainePrimary;
+		listeCoachs.appendChild(cartecoach);
+		NbreSkieurs++;
+		
+		if (secondary === true)
+			{
+			const cartecoach = document.createElement("div");
+			cartecoach.className = "carte-identite person";
+			cartecoach.innerHTML = chaineSecondary;
+			listeCoachs.appendChild(cartecoach);
+			NbreSkieurs++;
+			secondary = false;
+			}			
+		} 
+	else if (coach.categorie2.includes(categorie))
+		{
+		if (primary === true) 
+			{
+			primary = false;
+			secondary = false;
+			const cartecoach = document.createElement("div");
+			cartecoach.className = "carte-identite person";
+			cartecoach.innerHTML = `
+			<img src="${coach.photo}" alt="${nomCoach}" onerror="this.src='assets/images/coachs/placeholder.jpg'">
+			<div class="card-body">
+			<strong>${nomCoach}</strong><br>
+			GROUPE: ${coach.type2} ${coach.categorie2} <br>
+			FFS : ${coach.FIS}
+			</div>
+			`;
+			listeCoachs.appendChild(cartecoach);
+			NbreSkieurs++;
+			}		
+		else  
+			{
+			secondary = true
+			chaineSecondary =`
+			<img src="${coach.photo}" alt="${nomCoach}" onerror="this.src='assets/images/coachs/placeholder.jpg'">
+			<div class="card-body">
+			<strong>${nomCoach}</strong><br>
+			GROUPE: ${coach.type2} ${coach.categorie2} <br>
+			FFS : ${coach.FIS}
+			</div>
+			`;
+			}
+		}
+}
+);
+	
+  Object.values(skieurs).forEach((skieur) => 
+	{
+    const nomSkieur = `${skieur.prenom} ${skieur.nom}`;
+	/*if (skieur.categorie === categorie) */
+	if (skieur.categorie.includes(categorie))
+		{
+		const carteskieur = document.createElement("div");
+		carteskieur.className = "carte-identite person";
+		carteskieur.innerHTML = `
+		<img src="${skieur.photo}" alt="${nomSkieur}" onerror="this.src='assets/images/groupes/placeholder.jpg'">
+		<div class="card-body">
+		<strong>${nomSkieur}</strong><br>
+		${skieur.age} - ${skieur.dob} <br>Licence : ${skieur.licence}        
+		</div>
+		`;
+		listeSkieurs.appendChild(carteskieur);
+		NbreSkieurs++;
+		}
+	}
+	);
+	
+  document.getElementById("TitreTrombi").textContent = 'Les ' + categorie + ' et leurs coachs';
+  document.getElementById("NbreSkieurs").textContent = NbreSkieurs + ' membres';
+  
+</script>
+</body>
+</html>
+
